@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LeakShield AI</title>
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial,Helvetica,sans-serif;
+}
+
+body{
+    background:#eef5ff;
+}
+
+.navbar{
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+    color:white;
+    padding:20px 50px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+.logo{
+    font-size:30px;
+    font-weight:bold;
+}
+
+.menu{
+    display:flex;
+    gap:30px;
+}
+
+.menu a{
+    color:white;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.menu a:hover{
+    color:#ffd43b;
+}
+
+.container{
+    width:90%;
+    margin:auto;
+    padding-top:70px;
+    text-align:center;
+}
+
+h1{
+    font-size:50px;
+    color:#1e293b;
+}
+
+p{
+    margin-top:20px;
+    font-size:20px;
+    color:#64748b;
+}
+
+.btn{
+    margin-top:35px;
+    margin-bottom:20px;
+    padding:15px 35px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.btn:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+    box-shadow:0 10px 25px rgba(37,99,235,.35);
+}
+
+.features{
+    display:flex;
+    justify-content:center;
+    gap:25px;
+    flex-wrap:wrap;
+    margin-top:70px;
+}
+
+.card{
+    width:320px;
+    background:white;
+    padding:30px;
+    border-radius:18px;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    transition:.3s;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+}
+
+.card h3{
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.icon{
+    font-size:45px;
+    margin-bottom:15px;
+}
+
+footer{
+    text-align:center;
+    margin:60px;
+    color:#666;
+}
+.highlight{
+    color:#2563eb;
+}
+.subtitle{
+    margin-top:25px;
+    font-size:22px;
+    color:#555;
+    line-height:35px;
+}
+
+</style>
+</head>
+<body>
+
+<div class="navbar">
+
+<div class="logo">
+🛡 LeakShield AI
+</div>
+
+<div class="menu">
+<a href="/">Home</a>
+<a href="/upload">Upload</a>
+</div>
+
+</div>
+
+<div class="container">
+
+<h1>
+
+Stop Paying for
+
+<span class="highlight">Subscriptions You Forgot.</span>
+
+</h1>
+
+<p class="subtitle">
+
+AI-powered financial assistant that detects hidden subscriptions,
+recurring payments, price hikes, and helps you save money automatically.
+
+</p>
+
+<a href="/upload">
+    <button class="btn">
+        Upload Bank Statement
+    </button>
+</a>
+
+<div class="features">
+
+<div class="card">
+<div class="icon">💳</div>
+<h3>Recurring Detection</h3>
+<p>Automatically finds recurring subscriptions from your bank statement.</p>
+</div>
+
+<div class="card">
+<div class="icon">📈</div>
+<h3>Leak Score</h3>
+<p>Instantly calculates how much money leaks every month.</p>
+</div>
+
+<div class="card">
+<div class="icon">🤖</div>
+<h3>AI Insights</h3>
+<p>Receive smart recommendations to reduce unnecessary spending.</p>
+</div>
+
+</div>
+
+</div>
+<footer>
+    LeakShield AI © 2026 • AI-Powered Financial Insights
+</footer>
+</body>
+</html>

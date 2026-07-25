@@ -1,0 +1,631 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>LeakShield AI Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f7fb;
+            margin:40px;
+        }
+
+        h1{
+            color:#0d6efd;
+        }
+
+        .card{
+            background:white;
+            padding:20px;
+            border-radius:10px;
+            box-shadow:0px 0px 10px rgba(0,0,0,0.1);
+            margin-bottom:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th,td{
+            border:1px solid #ddd;
+            padding:12px;
+            text-align:left;
+        }
+
+        th{
+            background:#0d6efd;
+            color:white;
+        }
+
+        .total{
+            font-size:22px;
+            font-weight:bold;
+            color:green;
+        }
+
+        .alert{
+            color:red;
+            font-weight:bold;
+        }
+
+        .navbar{
+    background:#0d6efd;
+    color:white;
+    padding:15px 25px;
+    border-radius:10px;
+    margin-bottom:25px;
+    font-size:22px;
+    font-weight:bold;
+}
+
+
+.score{
+    font-size:40px;
+    font-weight:bold;
+    color:#0d6efd;
+}
+
+
+button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:10px 20px;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+
+button:hover{
+    background:#084298;
+}
+
+
+input{
+    border:1px solid #ccc;
+    border-radius:5px;
+}
+*{
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, sans-serif;
+    background:#eef4ff;
+    margin:0;
+}
+
+.navbar{
+    background:linear-gradient(90deg,#0d6efd,#4f9dff);
+    color:white;
+    padding:18px 40px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.tagline{
+    font-size:15px;
+    margin-top:5px;
+    opacity:0.9;
+}
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.stats{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    margin-bottom:25px;
+}
+
+.stat-card{
+    flex:1;
+    min-width:220px;
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+.stat-card h3{
+    margin:0;
+    color:#666;
+}
+
+.stat-card h1{
+    margin-top:10px;
+    color:#0d6efd;
+}
+
+.card{
+    background:white;
+    border-radius:15px;
+    padding:20px;
+    margin-bottom:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,.08);
+}
+
+button{
+    background:#0d6efd;
+    color:white;
+    border:none;
+    padding:12px 18px;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#084298;
+}
+
+input{
+    width:70%;
+    padding:12px;
+    border:1px solid #ccc;
+    border-radius:8px;
+}
+
+footer{
+    text-align:center;
+    color:#666;
+    margin:40px 0;
+}
+.blue-card{
+    background:linear-gradient(135deg,#2563eb,#3b82f6);
+    color:white;
+}
+
+.green-card{
+    background:linear-gradient(135deg,#16a34a,#22c55e);
+    color:white;
+}
+
+.orange-card{
+    background:linear-gradient(135deg,#ea580c,#f59e0b);
+    color:white;
+}
+
+.red-card{
+    background:linear-gradient(135deg,#dc2626,#ef4444);
+    color:white;
+}
+
+.blue-card h1,.blue-card h3,
+.green-card h1,.green-card h3,
+.orange-card h1,.orange-card h3,
+.red-card h1,.red-card h3{
+    color:white;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    transition:.3s;
+}
+
+table tr:hover{
+    background:#eef5ff;
+}
+    </style>
+
+</head>
+
+
+<body>
+
+<div class="navbar" style="display:flex;justify-content:space-between;align-items:center;">
+
+    <div>
+        <i class="fa-solid fa-shield-halved"></i>
+        LeakShield AI
+
+        <div class="tagline">
+            Detect • Analyze • Save
+        </div>
+    </div>
+
+    <div>
+        <i class="fa-solid fa-chart-line"></i>
+        Dashboard
+    </div>
+
+</div>
+
+<div>
+<i class="fa-solid fa-chart-line"></i>
+Dashboard
+</div>
+</div>
+
+<div class="container">
+
+
+<!-- Leak Score -->
+
+<div class="stats">
+
+<div class="stat-card blue-card">
+<h3><i class="fa-solid fa-gauge-high"></i> Leak Score</h3>
+<h1>{{ leak_score }}/100</h1>
+</div>
+
+<div class="stat-card red-card">
+<h3><i class="fa-solid fa-wallet"></i> Total Spending</h3>
+<h1>${{ total }}</h1>
+</div>
+
+<div class="stat-card green card">
+<h3><i class="fa-solid fa-piggy-bank"></i> Savings</h3>
+<h1>${{ potential_savings }}</h1>
+</div>
+
+<div class="stat-card orange-card">
+<h3><i class="fa-solid fa-repeat"></i> Subscriptions</h3>
+<h1>{{ subscriptions|length }}</h1>
+</div>
+
+</div>
+
+
+
+<!-- Subscription Details -->
+
+<div class="card" style="border-left:6px solid #2563eb;">
+
+<h2>Recurring Subscriptions</h2>
+
+
+<table>
+
+<tr>
+    <th>Service</th>
+    <th>Payments</th>
+    <th>Total Spent</th>
+</tr>
+
+
+{% for item in subscriptions %}
+
+<tr>
+
+    <td>{{ item.service }}</td>
+
+    <td>{{ item.count }}</td>
+
+    <td>${{ item.amount }}</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+
+</div>
+
+
+
+
+<!-- Total Spending -->
+
+<div class="card">
+
+<p class="total">
+
+Total Subscription Spending : ${{ total }}
+
+</p>
+
+</div>
+
+
+
+
+
+<!-- AI Recommendation -->
+
+<div class="card" style="border-left:6px solid #8b5cf6;">
+<h2>AI Recommendation</h2>
+
+<p>{{ recommendation }}</p>
+
+
+</div>
+
+
+
+
+
+<!-- Price Hike Detection -->
+
+<div class="card" style="border-left:6px solid #ef4444;">
+
+<h2>⚠️ Price Hike Alerts</h2>
+
+
+{% if price_hikes %}
+
+
+<table>
+
+
+<tr>
+
+<th>Service</th>
+
+<th>Old Price</th>
+
+<th>New Price</th>
+
+</tr>
+
+
+
+{% for hike in price_hikes %}
+
+
+<tr>
+
+<td>{{ hike.service }}</td>
+
+<td>${{ hike.old }}</td>
+
+<td>${{ hike.new }}</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+
+</table>
+
+
+{% else %}
+
+
+<p>✅ No price increases detected.</p>
+
+
+{% endif %}
+
+
+
+</div>
+
+<!-- Unused Subscription Detection -->
+
+<div class="card" style="border-left:6px solid #f59e0b;">
+
+<h2>🕵️ Unused Subscription Detection</h2>
+
+
+{% if unused_subscriptions %}
+
+
+<table>
+
+<tr>
+    <th>Service</th>
+    <th>Payments</th>
+    <th>Total Spent</th>
+</tr>
+
+
+{% for item in unused_subscriptions %}
+
+<tr>
+
+<td>{{ item.service }}</td>
+
+<td>{{ item.payments }}</td>
+
+<td>${{ item.spent }}</td>
+
+</tr>
+
+
+{% endfor %}
+
+
+</table>
+
+
+{% else %}
+
+
+<p>✅ No unused subscriptions detected.</p>
+
+
+{% endif %}
+
+
+</div>
+<div class="card" style="border-left:6px solid #06b6d4;">
+
+<h2>📊 Monthly Spending Analysis</h2>
+
+<table>
+
+<tr>
+    <th>Month</th>
+    <th>Total Spending</th>
+</tr>
+
+
+{% for month, amount in monthly_spending.items() %}
+
+<tr>
+
+<td>{{ month }}</td>
+
+<td>${{ amount }}</td>
+
+</tr>
+
+{% endfor %}
+
+
+</table>
+
+</div>
+<div class="card" style="border-left:6px solid #7c3aed;">
+
+<h2>🤖 Ask LeakShield AI</h2>
+
+<form action="/chat" method="POST">
+
+<input 
+type="text" 
+name="question"
+placeholder="Ask about your spending..."
+style="width:70%;padding:10px;"
+required>
+
+<button type="submit">
+Ask
+</button>
+
+</form>
+
+</div>
+<!-- Spending Chart -->
+
+<div class="card" style="border-left:6px solid #2563eb;">
+
+<h2>📈 Spending Trend</h2>
+
+<canvas id="spendingChart"></canvas>
+
+</div>
+<div class="card">
+
+<h2>🥧 Subscription Spending Distribution</h2>
+
+<canvas id="pieChart"></canvas>
+
+</div>
+
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+
+<script>
+
+const months = {{ monthly_spending.keys() | list | safe }};
+
+const amounts = {{ monthly_spending.values() | list | safe }};
+const services = [
+{% for item in subscriptions %}
+"{{ item.service }}",
+{% endfor %}
+];
+
+const spending = [
+{% for item in subscriptions %}
+{{ item.amount }},
+{% endfor %}
+];
+
+const ctx = document.getElementById('spendingChart');
+
+
+new Chart(ctx, {
+
+    type: 'bar',
+
+    data: {
+
+        labels: months,
+
+        datasets: [{
+
+            label: 'Monthly Spending',
+
+            data: amounts
+
+        }]
+
+    },
+    
+
+    options: {
+
+        responsive: true,
+
+        scales: {
+
+            y: {
+
+                beginAtZero: true
+
+            }
+
+        }
+
+    }
+
+});
+const pie = document.getElementById("pieChart");
+
+new Chart(pie, {
+
+    type: "pie",
+
+    data: {
+        labels: services,
+        datasets: [{
+            data: spending
+        }]
+    },
+
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: "bottom"
+            }
+        }
+    }
+
+});
+
+</script>
+<div class="card" style="border-left:6px solid #22c55e;">
+
+<h2>💰 Saving Opportunity</h2>
+
+<p class="total">
+
+You can save approximately ${{ potential_savings }} by reviewing unnecessary subscriptions.
+
+</p>
+
+</div>
+<div class="card" style="border-left:6px solid #0d6efd;">
+
+<h2>📄 Download Report</h2>
+
+<a href="/report">
+    <button>Download PDF Report</button>
+</a>
+
+</div>
+
+<footer>
+
+LeakShield AI © 2026 • Smart Subscription Analyzer
+
+</footer>
+
+</div>
+
+</body>
+</html>

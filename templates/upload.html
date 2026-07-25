@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Upload Bank Statement</title>
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+    <style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, Helvetica, sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef5ff,#dbeafe);
+    height:100vh;
+}
+
+.navbar{
+    background:linear-gradient(90deg,#2563eb,#3b82f6);
+    color:white;
+    padding:20px 50px;
+    font-size:30px;
+    font-weight:bold;
+}
+
+.container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    height:85vh;
+}
+
+.card{
+    background:white;
+    width:500px;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+    text-align:center;
+}
+
+.card h1{
+    color:#1e293b;
+    margin-bottom:15px;
+}
+
+.subtitle{
+    color:#64748b;
+    margin-bottom:30px;
+    font-size:18px;
+}
+
+.upload-box{
+    border:2px dashed #3b82f6;
+    border-radius:15px;
+    padding:35px;
+    background:#f8fbff;
+    margin-bottom:30px;
+}
+
+.upload-box i{
+    font-size:60px;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+input[type=file]{
+    font-size:16px;
+}
+
+button{
+    background:#2563eb;
+    color:white;
+    border:none;
+    padding:15px 35px;
+    border-radius:10px;
+    font-size:18px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+    transform:scale(1.05);
+}
+
+footer{
+    text-align:center;
+    margin-top:25px;
+    color:#666;
+}
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="navbar">
+🛡 LeakShield AI
+</div>
+
+<div class="container">
+
+<div class="card">
+
+<h1>Upload Your Bank Statement</h1>
+
+<p class="subtitle">
+Upload your CSV bank statement and let LeakShield AI detect recurring subscriptions, price hikes, and spending insights.
+</p>
+
+<form action="/analyze" method="POST" enctype="multipart/form-data">
+
+<div class="upload-box">
+
+<i class="fa-solid fa-file-csv"></i>
+
+<br><br>
+
+<input type="file" name="file" required>
+
+</div>
+
+<button type="submit">
+
+<i class="fa-solid fa-magnifying-glass-chart"></i>
+ Analyze Statement
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+<footer>
+
+LeakShield AI © 2026 • AI-Powered Financial Insights
+
+</footer>
+
+</body>
+</html>
